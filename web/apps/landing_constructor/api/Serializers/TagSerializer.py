@@ -1,16 +1,10 @@
 from rest_framework import serializers
 from ...models import Tag as TagModel
+from rest_framework_recursive.fields import RecursiveField
 
-
-
-class ChildTagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TagModel
-        exclude = ('parent',)
 
 class TagSerializer(serializers.ModelSerializer):
-    tag_set = ChildTagSerializer(many=True, source='children')
+    children = RecursiveField(many=True, required=False)
     class Meta:
         model = TagModel
         fields = '__all__'
-

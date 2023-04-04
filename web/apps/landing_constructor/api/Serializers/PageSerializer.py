@@ -8,7 +8,7 @@ class PageSerializer(serializers.ModelSerializer):
     tags = serializers.SerializerMethodField()
     
     def get_tags(self, obj):
-        return TagSerializer(TagModel.objects.filter(parent__isnull=True), many=True).data
+        return TagSerializer(TagModel.objects.filter(parent__isnull=True, page=obj.id), many=True).data
 
     class Meta:
         model = PageModel

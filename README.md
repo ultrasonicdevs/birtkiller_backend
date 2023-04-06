@@ -9,5 +9,6 @@
 
 ## ДОКУМЕНТАЦИЯ ПО API
 
-1. localhost:8000/api/
-2. localhost:8000/swagger/
+1. localhost:8000/api/docs
+2. localhost:8000/api/swagger
+3. localhost:8000/api/redoc

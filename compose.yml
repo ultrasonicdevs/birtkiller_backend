@@ -13,12 +13,16 @@ services:
       dockerfile: Dockerfile
       context: ./web
     container_name: birtkiller_web
-    command: "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    restart: always
+    command: "python3 manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./web:/app
     environment:
       - DJANGO_IN_DOCKER=True
-    env_file:
-      - ./web/.env
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_PASSWORD=Qwerty123
+      - DJANGO_SUPERUSER_EMAIL=admin@ad.min
     ports:
       - 8000:8000
+    depends_on:
+      - db

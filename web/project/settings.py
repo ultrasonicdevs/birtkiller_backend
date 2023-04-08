@@ -69,7 +69,7 @@ DATABASES = {
         'NAME': 'landing_constructor',
         'USER': os.getenv('DJANGO_POSTGRES_USER', 'postgres'),
         'PASSWORD': os.getenv('DJANGO_POSTGRES_USER_PASSWORD', 'postgres'),
-        'HOST': os.getenv('DJANGO_POSTGRES_HOST', 'localhost'),
+        'HOST': os.getenv('DJANGO_POSTGRES_HOST', 'db'),
         'PORT': os.getenv('DJANGO_POSTGRES_PORT', '5432'),
     }
 }
